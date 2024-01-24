@@ -1,20 +1,37 @@
-<!-- movie-details.component.html -->
-<div *ngIf="movieDetails" class="movie-details-container">
-    <h2>{{ movieDetails.title }}</h2>
-    <p>Year: {{ movieDetails.year }}</p>
-    <p>Rated: {{ movieDetails.rated }}</p>
-    <p>Released: {{ movieDetails.released }}</p>
+<div class="movie-details-container">
+  <header class="hero-section">
+    <div class="hero-overlay"></div>
+    <h1>{{ movieDetails?.title }}</h1>
+  </header>
   
-    <div class="poster-container">
-      <img [src]="movieDetails.poster" alt="{{ movieDetails.title }} Poster" />
+  <main>
+    <button class="back-button" (click)="goBack()">Back</button>
+    <div class="movie-details-card">
+      <img src="{{ movieDetails?.poster }}" alt="{{ movieDetails?.title }} Poster" class="poster" />
+
+      <div class="details">
+        <p><strong>Year:</strong> {{ movieDetails?.year }}</p>
+        <p><strong>Rated:</strong> {{ movieDetails?.rated }}</p>
+        <p><strong>Released:</strong> {{ movieDetails?.released }}</p>
+        <p><strong>Runtime:</strong> {{ movieDetails?.runtime }}</p>
+        <p><strong>Genre:</strong> {{ movieDetails?.genre }}</p>
+        <p><strong>Director:</strong> {{ movieDetails?.director }}</p>
+        <p><strong>Writer:</strong> {{ movieDetails?.writer }}</p>
+        <p><strong>Actors:</strong> {{ movieDetails?.actors }}</p>
+        <p><strong>Plot:</strong> {{ movieDetails?.plot }}</p>
+        <p><strong>Language:</strong> {{ movieDetails?.language }}</p>
+        <p><strong>Country:</strong> {{ movieDetails?.country }}</p>
+        <p><strong>Awards:</strong> {{ movieDetails?.awards }}</p>
+
+        <div class="ratings">
+          <p><strong>Ratings:</strong></p>
+          <ul>
+            <li *ngFor="let rating of movieDetails?.rating">
+              {{ rating.Source }}: {{ rating.Value }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  
-    <p>Plot: {{ movieDetails.plot }}</p>
-    <p>Director: {{ movieDetails.director }}</p>
-    <!-- Add more details as needed -->
-  </div>
-  
-  <div *ngIf="!movieDetails" class="loading-message">
-    Loading movie details...
-  </div>
-  
+  </main>
+</div>

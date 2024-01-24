@@ -4,11 +4,12 @@ import { MovieSearchResult } from '../../_interface/movie-search-results';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { LatestSearchQueriesComponent } from '../latest-search-queries/latest-search-queries.component';
 
 @Component({
   selector: 'app-movie-search',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LatestSearchQueriesComponent ],
   templateUrl: './movie-search.component.html',
   styleUrls: ['./movie-search.component.scss']
 })
@@ -24,8 +25,7 @@ export class MovieSearchComponent {
       this.movieService.searchMovies(this.searchTerm).subscribe(
         result => {
           this.searchResult = result;
-          const queries = result?.search.map(movie => movie.title) || [];
-          this.movieService.updateLatestSearchQueries(queries);
+          
         },
         error => console.error(error)
       );

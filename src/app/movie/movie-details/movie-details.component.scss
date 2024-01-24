@@ -1,68 +1,103 @@
-/* movie-search.component.scss */
-.movie-search-container {
-    display: flex;
-    align-items: center;
-  
-    input {
-      margin-right: 10px;
-      padding: 5px;
-      font-size: 16px;
+.movie-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%);
+      z-index: 1;
     }
-  
-    button {
-      padding: 5px 10px;
-      font-size: 16px;
-      cursor: pointer;
+
+    h1 {
+      position: relative;
+      z-index: 2;
+      color: black;
+      font-size: 2em;
+      background-color: yellow;
+      margin-top: 50px;
     }
   }
-  
-  .search-results {
-    margin-top: 20px;
-  
-    h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-  
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-  
-    .movie-item {
+
+  main {
+    .movie-details-card {
       display: flex;
-      margin-bottom: 15px;
-      padding: 10px;
+      flex-wrap: wrap;
       border: 1px solid #ccc;
-      border-radius: 5px;
-      cursor: pointer;
-  
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+
       &:hover {
-        background-color: black;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       }
-  
-      .poster-container {
-        margin-right: 10px;
-  
-        img {
-          max-width: 100px;
-          max-height: 150px;
-          object-fit: cover;
-          border-radius: 5px;
-        }
+
+      .poster {
+        max-width: 300px;
+        width: 100%;
+        object-fit: cover;
+        border-bottom: 1px solid #ccc;
       }
-  
-      .movie-details {
-        h3 {
-          font-size: 18px;
-          margin-bottom: 5px;
-        }
-  
+
+      .details {
+        padding: 20px;
+        color: #333;
+
         p {
           margin: 0;
-          font-size: 16px;
+          margin-bottom: 10px;
+        }
+
+        .ratings {
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              margin-bottom: 5px;
+            }
+          }
         }
       }
     }
   }
-  
+
+  @media (max-width: 768px) {
+    main {
+      .movie-details-card {
+        flex-direction: column;
+
+        .poster {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .back-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

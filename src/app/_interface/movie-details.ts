@@ -23,5 +23,12 @@ export interface MovieDetails {
     production: string;
     website: string;
     response: boolean;
+    rating: Rating [];
   }
   
+
+  export interface Rating {
+    Source: string;
+    Value: string;
+   
+  }

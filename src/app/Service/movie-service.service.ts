@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { EnvironmentUrlService } from './environment-url.service';
 import { MovieDetails } from '../_interface/movie-details';
 import { MovieSearchResult } from '../_interface/movie-search-results';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +11,6 @@ import { Observable, Subject } from 'rxjs';
 export class MovieServiceService {
 
   constructor(private http: HttpClient, private envUrl: EnvironmentUrlService) { }
-
-  private latestSearchQueriesSubject = new Subject<string[]>();
-
-  latestSearchQueries$ = this.latestSearchQueriesSubject.asObservable();
-
-  updateLatestSearchQueries(queries: string[]): void {
-    this.latestSearchQueriesSubject.next(queries);
-  }
 
 
   public searchMovies = (title: string): Observable<MovieSearchResult> => {

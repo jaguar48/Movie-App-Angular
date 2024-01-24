@@ -12,15 +12,22 @@ import { CommonModule } from '@angular/common';
 
 
 export class LatestSearchQueriesComponent implements OnInit {
-
   latestSearchQueries: string[] = [];
 
-  constructor(private movieservice : MovieServiceService ) { }
+  constructor(private movieService: MovieServiceService) { }
 
   ngOnInit(): void {
-    this.movieservice.latestSearchQueries$.subscribe(
-      queries => this.latestSearchQueries = queries,
-      error => console.error(error)
+    this.getLatestSearchQueries();
+  }
+
+  getLatestSearchQueries(): void {
+    this.movieService.getLatestSearchQueries().subscribe(
+      (queries: string[]) => {
+        this.latestSearchQueries = queries;
+      },
+      (error) => {
+        console.error('Error fetching latest search queries:', error);
+      }
     );
   }
 }

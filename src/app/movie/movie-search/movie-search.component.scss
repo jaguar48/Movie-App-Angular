@@ -1,60 +1,82 @@
 /* movie-search.component.scss */
+
 .movie-search-container {
-    display: flex;
-    align-items: center;
-  
-    input {
-      margin-right: 10px;
-      padding: 5px;
-      font-size: 16px;
-    }
-  
-    button {
-      padding: 5px 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+  input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
   }
-  
-  .search-results {
-    margin-top: 20px;
-  
-    h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-  
+
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.search-results {
+  margin-top: 30px;
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
     .movie-item {
       display: flex;
-      margin-bottom: 15px;
-      padding: 10px;
+      align-items: center;
       border: 1px solid #ccc;
-      border-radius: 5px;
-        
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+
       .poster-container {
-        margin-right: 10px;
+        flex: 0 0 30%;
+        max-width: 30%;
+        padding: 10px;
+
         img {
-          max-width: 100px;
-          max-height: 150px;
-          object-fit: cover;
+          width: 100%;
+          height: auto;
           border-radius: 5px;
         }
       }
-      .movie-item :hover{
-        background-color: black;
 
-      }
       .movie-details {
+        flex: 1;
+        padding: 10px;
+
         h3 {
-          font-size: 18px;
+          font-size: 1.2em;
           margin-bottom: 5px;
         }
-  
+
         p {
           margin: 0;
-          font-size: 16px;
         }
       }
     }
   }
-  
+}

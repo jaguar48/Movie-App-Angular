@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MovieDetails } from '../../_interface/movie-details';
 import { MovieServiceService } from '../../Service/movie-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,7 +17,8 @@ export class MovieDetailsComponent {
 
   constructor(
     private movieService: MovieServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,5 +41,8 @@ export class MovieDetailsComponent {
         }
       );
     }
+  }
+  goBack(): void {
+    this.router.navigate(['/']); 
   }
 }
