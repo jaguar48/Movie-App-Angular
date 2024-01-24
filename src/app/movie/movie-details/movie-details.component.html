@@ -1,0 +1,20 @@
+<!-- movie-details.component.html -->
+<div *ngIf="movieDetails" class="movie-details-container">
+    <h2>{{ movieDetails.title }}</h2>
+    <p>Year: {{ movieDetails.year }}</p>
+    <p>Rated: {{ movieDetails.rated }}</p>
+    <p>Released: {{ movieDetails.released }}</p>
+  
+    <div class="poster-container">
+      <img [src]="movieDetails.poster" alt="{{ movieDetails.title }} Poster" />
+    </div>
+  
+    <p>Plot: {{ movieDetails.plot }}</p>
+    <p>Director: {{ movieDetails.director }}</p>
+    <!-- Add more details as needed -->
+  </div>
+  
+  <div *ngIf="!movieDetails" class="loading-message">
+    Loading movie details...
+  </div>
+  
